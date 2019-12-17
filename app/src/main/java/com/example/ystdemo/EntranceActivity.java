@@ -29,11 +29,19 @@ public class EntranceActivity extends Activity {
 
         final CTAdBaseLayout ctAdBaseLayout = findViewById(R.id.ct_ad);
         ctAdBaseLayout.setCTAdRenderCallback(new CTAdRenderCallback() {
+            /**
+             * 广告渲染成功
+             * @param isShowRedDot　是否需要个人中心显示未读红点
+             */
             @Override
             public void onAdRenderSucceed(boolean isShowRedDot) {
                 Log.d(TAG, "onAdRenderSucceed() called with: isShowRedDot = [" + isShowRedDot +
                         "]");
                 ctAdBaseLayout.setVisibility(View.VISIBLE);
+
+                if (isShowRedDot) {
+                    // TODO: lzx 19-12-17 个人中心显示红点
+                }
             }
 
             @Override
@@ -41,6 +49,7 @@ public class EntranceActivity extends Activity {
 
             }
         });
+        // 8个广告位，目前必须是8个
         List<String> positionList = Arrays.asList("455442", "455443", "455444", "455445", "455446"
                 , "455447", "455448", "455449");
         ctAdBaseLayout.refreshAd(positionList);

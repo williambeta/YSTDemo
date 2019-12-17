@@ -13,11 +13,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            manifestPlaceholders = [file_provider: "com.coolpush.ctbusinesslibcore.fileprovider"]
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            manifestPlaceholders = [file_provider: "com.coolpush.ctbusinesslibcore.fileprovider"]
         }
     }
 }
